@@ -12,11 +12,11 @@
 
     <link href="${pageContext.request.contextPath}/app/static/customCSS.css" rel="stylesheet" type="text/css"/>
 </head>
-<body onload="document.f.j_username.focus();">
+<body onload="document.formLogin.j_username.focus();">
 
 <h3>Login with Username and Password</h3>
 
-<form name="f" method="post" action="${pageContext.request.contextPath}/j_spring_security_check" >
+<form name="formLogin" method="post" action="${pageContext.request.contextPath}/j_spring_security_check" >
     <table class="formTable">
         <tr>
             <td>User:</td>
