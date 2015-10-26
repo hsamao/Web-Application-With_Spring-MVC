@@ -19,13 +19,16 @@
     </listener>
 
     <context-param>
+
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:com/samao/dymcWeb/domain/domain-config.xml
-            classpath:service/service-config.xml
-        </param-value>
+        <param-value>classpath:org/springframework/web/filter/security-context.xml
+            classpath:web-config.xml</param-value>
+
+
     </context-param>
 
 
+    <!-- SERVLET CONFIGURATION-->
     <servlet>
         <servlet-name>dymcWeb</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -41,9 +44,24 @@
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
 
+
+    <!-- FILTER CONFIGURATION-->
+    <filter>
+        <display-name>springSecurityFilterChain</display-name>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/app/*</url-pattern>
+    </filter-mapping>
+
+
     <welcome-file-list>
         <welcome-file>/WEB-INF/view/home.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
 
 </web-app>

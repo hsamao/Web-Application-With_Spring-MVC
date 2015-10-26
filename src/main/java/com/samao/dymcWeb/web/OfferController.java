@@ -3,11 +3,9 @@ package com.samao.dymcWeb.web;
 import com.samao.dymcWeb.domain.Offer;
 import com.samao.dymcWeb.service.OfferService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,7 +30,7 @@ public class OfferController {
     @RequestMapping(value = "/offer", method = RequestMethod.GET)
     public String showOffer(Model model) {
 
-       // offerService.throwTestException();
+        // offerService.throwTestException();
 
         List<Offer> offers = offerService.getCurrent();
         model.addAttribute("offers", offers);
